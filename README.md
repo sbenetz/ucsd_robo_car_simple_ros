@@ -1,4 +1,4 @@
-# ucsd_robo_car_simple_ros
+# ucsd_robo_car_ros_lidar_supported
 
 <img src="ucsd_ros_logo.png">
 
@@ -361,8 +361,10 @@ Associated file: **lane_guidance.py**
 
 This node subscribes to the centroid topic, calculates the throttle and steering
 based on the centroid value, and then publish them to their corresponding topics.
+This node additionally subscribes to the simple obstacle detection topic which adds to the calculation of the steering of the vehicle and changes its value before it is published.
 Throttle is based on whether or not a centroid exists - car goes faster when centroid is present and slows down when there is none.
-Steering is based on a proportional controller implemented by the calculating the error between the centroid found in [**lane_detection_node**](#lane_detection_node) and the heading of the car. 
+Steering is based on a proportional controller implemented by the calculating the error between the centroid found in [**lane_detection_node**](#lane_detection_node) and the heading of the car. It also adds in a factor of steering that turns proportionally opposite to the angle of a detected obstacle and takes into account the distance from the obstacle. The overall steering equation comes out to this:
+  Θ_car = -(k_p * err_x) + { k_p * obj_detected * (Θ_detection / abs(Θ_detection)) * ((Θ_max- abs(Θ_detection) / Θ_max) * ((1 - obj_dist) / obj_dist) }
 
 Gains can be tweaked in the lane_guidance.py script.
 
