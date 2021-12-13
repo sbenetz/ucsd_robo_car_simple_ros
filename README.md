@@ -2,7 +2,7 @@
 
 <img src="ucsd_ros_logo.png">
 
-### A simple ROS package using OpenCV on a 1/10 RC car chassis with ackerman steering that can detect and track road lines or lanes in a driver-less mode. 
+### A ROS package using OpenCV on a 1/10 RC car chassis with ackerman steering that can detect and track road lines or lanes in a driver-less mode while additionally detecting & avoiding obstacles using onboard LiDAR. 
 
 <div>
 
