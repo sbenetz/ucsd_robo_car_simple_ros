@@ -365,12 +365,19 @@ This node additionally subscribes to the simple obstacle detection topic which a
 Throttle is based on whether or not a centroid exists - car goes faster when centroid is present and slows down when there is none.
 Steering is based on a proportional controller implemented by the calculating the error between the centroid found in [**lane_detection_node**](#lane_detection_node) and the heading of the car. It also adds in a factor of steering that turns proportionally opposite to the angle of a detected obstacle and takes into account the distance from the obstacle. The overall steering equation comes out to this:
   
-Θ_car = -(k_p * err_x) + { k_p * obj_detected * (Θ_detection / abs(Θ_detection)) * ((Θ_max- abs(Θ_detection) / Θ_max) * ((1 - obj_dist) / obj_dist) }
+Θ_car = -(k_p * err_x) + {k_p * obj_detected * (Θ_detection/abs(Θ_detection)) * ((Θ_max- abs(Θ_detection)/Θ_max) * ((1 - obj_dist) / obj_dist)}
 
-Gains can be tweaked in the lane_guidance.py script.
 <div align="center">
   <img src="NavImage.jpg">
 </div>
+
+### **simple_obstacle_detection_node**
+
+Associated file: **simple_obstacle_detection_node.py**
+
+Uses LiDAR data to determine objects around the vehicle. Finds the center of the nearest obstacle and publishes it to an array containing information about 
+  how far the obstacle is, what angle it is at, and whether or not there is an obstacle within range. The angle is within the range [-65,65], 0 behind straight ahead, 65 degrees to the left of center and -65 degrees to the right of center.
+  
 ### **ros_racer_calibration_node**
 
 Associated file: **ros_racer_calibration_node.py**
