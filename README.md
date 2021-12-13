@@ -4,7 +4,7 @@
 
 ### A ROS package using OpenCV on a 1/10 RC car chassis with ackerman steering that can detect and track road lines or lanes in a driver-less mode while additionally detecting & avoiding obstacles using onboard LiDAR. 
 
-Acknowledgement: This project is forked off an original project created by Dominic Nightingale for the ECE/MAE 148 course at UCSD. His project can be found here: <href="https://gitlab.com/djnighti/ucsd_robo_car_ros">
+Acknowledgement: This project is forked off an original project created by Dominic Nightingale for the ECE/MAE 148 course at UCSD. His project can be found [Here](https://gitlab.com/djnighti/ucsd_robo_car_ros)
 <div>
 
 ## Table of Contents
